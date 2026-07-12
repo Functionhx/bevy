@@ -17,6 +17,7 @@ serialize = [
   "bevy_ecs/serialize",
   "bevy_platform/serialize",
 ]
+bevy_camera = ["dep:bevy_camera"]
 
 [dependencies]
 # bevy
@@ -27,7 +28,7 @@ bevy_ecs = { path = "../bevy_ecs", version = "0.20.0-dev" }
 bevy_reflect = { path = "../bevy_reflect", version = "0.20.0-dev" }
 bevy_transform = { path = "../bevy_transform", version = "0.20.0-dev" }
 bevy_utils = { path = "../bevy_utils", version = "0.20.0-dev" }
-bevy_camera = { path = "../bevy_camera", version = "0.20.0-dev" }
+bevy_camera = { path = "../bevy_camera", version = "0.20.0-dev", optional = true }
 bevy_platform = { path = "../bevy_platform", version = "0.20.0-dev", default-features = false, features = [
   "std",
 ] }

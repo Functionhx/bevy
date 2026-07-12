@@ -5,6 +5,7 @@ use bevy_reflect::{prelude::ReflectDefault, Reflect};
 use bevy_transform::components::Transform;
 use derive_more::derive::From;
 
+#[cfg(feature = "bevy_camera")]
 use bevy_camera::visibility::Visibility;
 
 use crate::{DynamicWorld, WorldAsset};
@@ -19,7 +20,7 @@ use crate::{DynamicWorld, WorldAsset};
 )]
 #[reflect(Component, Default, Debug, PartialEq, Clone)]
 #[require(Transform)]
-#[require(Visibility)]
+#[cfg_attr(feature = "bevy_camera", require(Visibility))]
 pub struct WorldAssetRoot(pub Handle<WorldAsset>);
 
 impl AsAssetId for WorldAssetRoot {
@@ -37,7 +38,7 @@ impl AsAssetId for WorldAssetRoot {
 )]
 #[reflect(Component, Default, Debug, PartialEq, Clone)]
 #[require(Transform)]
-#[require(Visibility)]
+#[cfg_attr(feature = "bevy_camera", require(Visibility))]
 pub struct DynamicWorldRoot(pub Handle<DynamicWorld>);
 
 impl AsAssetId for DynamicWorldRoot {
